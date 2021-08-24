@@ -1,4 +1,4 @@
 class Node:
-    def __init__(self, data):
+    def __init__(self, data=None, next_pointer=None):
         self.value = data
-        self.next = None
+        self.next = next_pointer
