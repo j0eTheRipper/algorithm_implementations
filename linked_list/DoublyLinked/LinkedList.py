@@ -26,5 +26,39 @@ class DoublyLinkedList(LinkedList):
         self.head = data
         self.__len += 1
 
+    def insert(self, index, data):
+        data = DoubleNode(data)
+        data_before = self[index - 1]
+        data_after = data_before.next
+
+        data.back = data_before
+        data.next = data_after
+
+        data_after.back = data
+        data_before.next = data
+
+        self.__len += 1
+
     def __len__(self):
         return self.__len
+
+    def __getitem__(self, item):
+        mid = len(self) // 2
+
+        if item <= mid:
+            return self.__get_item_near_head(item)
+        else:
+            return self.__get_item_near_tail(item)
+
+    def __get_item_near_tail(self, item):
+        node = self.tail
+        item = len(self) - item - 1
+        for _ in range(item):
+            node = node.back
+        return node
+
+    def __get_item_near_head(self, item):
+        node = self.head
+        for _ in range(item):
+            node = node.next
+        return node

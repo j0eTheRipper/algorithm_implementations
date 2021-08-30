@@ -36,3 +36,31 @@ def test_len_getter():
     x.reverse_append(0)
 
     assert len(x) == 3
+
+
+def test_get():
+    x = make_linked_list()
+
+    assert x[1].value, x[3].value == (1, 3)
+
+
+def test_insert():
+    x = make_linked_list()
+    x.insert(3, 3.5)
+
+    assert x[3].value == 3.5
+
+
+def test_find():
+    x = make_linked_list()
+    x.insert(4, 3.5)
+
+    assert x.find(3.5) == 4
+
+def make_linked_list():
+    x = DoublyLinkedList(1)
+    x.append(2)
+    x.reverse_append(0)
+    x.append(3)
+    x.append(4)
+    return x

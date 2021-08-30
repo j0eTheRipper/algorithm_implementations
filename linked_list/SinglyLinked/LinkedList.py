@@ -53,7 +53,7 @@ class SinglyLinkedList:
                 return index
             else:
                 index += 1
-                node = node.value
+                node = node.next
 
     def __getitem__(self, item):
         if item < 0 or item > len(self):
