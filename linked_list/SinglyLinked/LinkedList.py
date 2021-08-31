@@ -76,5 +76,7 @@ class SinglyLinkedList:
 
         previous_item.next = next_item
 
+        self.__len -= 1
+
     def __len__(self):
         return self.__len

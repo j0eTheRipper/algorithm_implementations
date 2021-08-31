@@ -42,6 +42,22 @@ class DoublyLinkedList(LinkedList):
     def __len__(self):
         return self.__len
 
+    def __delitem__(self, item):
+        if item == 0:
+            self.head = self.head.next
+            self.head.back = None
+        elif item == len(self) - 1:
+            self.tail = self.tail.back
+            self.tail.next = None
+        else:
+            prev_item = self[item - 1]
+            next_item = prev_item.next.next
+
+            next_item.back = prev_item
+            prev_item.next = next_item
+
+        self.__len -= 1
+
     def __getitem__(self, item):
         mid = len(self) // 2
 
@@ -58,7 +74,4 @@ class DoublyLinkedList(LinkedList):
         return node
 
     def __get_item_near_head(self, item):
-        node = self.head
-        for _ in range(item):
-            node = node.next
-        return node
+        return super().__getitem__(item)
