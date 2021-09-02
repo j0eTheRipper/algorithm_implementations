@@ -5,10 +5,10 @@ class Deque:
     def __init__(self, data):
         self.deque = DoublyLinkedList(data)
 
-    def peek_top(self):
+    def peek_front(self):
         return self.deque.head.value
 
-    def peek_bottom(self):
+    def peek_back(self):
         return self.deque.tail.value
 
     def pop_top(self):
