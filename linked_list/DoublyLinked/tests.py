@@ -57,11 +57,13 @@ def test_find():
 
     assert x.find(3.5) == 4
 
+
 def test_remove():
     x = make_linked_list()
     del x[1]
 
     assert x[1].value == 2
+
 
 def make_linked_list():
     x = DoublyLinkedList(1)

@@ -43,10 +43,10 @@ class DoublyLinkedList(LinkedList):
         return self.__len
 
     def __delitem__(self, item):
-        if item == 0:
+        if item == 0 or item == self.head:
             self.head = self.head.next
             self.head.back = None
-        elif item == len(self) - 1:
+        elif item == len(self) - 1 or item == self.tail:
             self.tail = self.tail.back
             self.tail.next = None
         else:
