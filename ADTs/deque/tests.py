@@ -10,9 +10,9 @@ def test_initalization():
 def test_addition_and_deletion():
     x = Deque(1)
     x.add_top(0)
-    x.add_bottom(2)
+    x.add_back(2)
 
-    values = x.pop_top(), x.pop_bottom(), x.peek_back(), x.peek_front()
+    values = x.pop_top(), x.pop_back(), x.peek_back(), x.peek_front()
     required_values = 0, 2, 1, 1
 
     assert values == required_values

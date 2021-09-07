@@ -11,20 +11,20 @@ class Deque:
     def peek_back(self):
         return self.deque.tail.value
 
-    def pop_top(self):
+    def pop_front(self):
         x = self.deque[0].value
         del self.deque[0]
         return x
 
-    def pop_bottom(self):
+    def pop_back(self):
         x = self.deque[len(self) - 1].value
         del self.deque[len(self) - 1]
         return x
 
-    def add_top(self, data):
+    def add_front(self, data):
         self.deque.reverse_append(data)
 
-    def add_bottom(self, data):
+    def add_back(self, data):
         self.deque.append(data)
 
     def __len__(self):
