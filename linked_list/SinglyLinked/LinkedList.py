@@ -55,6 +55,16 @@ class SinglyLinkedList:
                 index += 1
                 node = node.next
 
+    def reverse(self):
+        temp_head = self.head
+        node = self.head.next
+
+        while temp_head.next is not None:
+            temp_head.next = node.next
+            node.next = self.head
+            self.head, node = node, self.head
+            node = node.next
+
     def __getitem__(self, item):
         if item < 0 or item > len(self):
             raise IndexError
