@@ -65,10 +65,17 @@ def test_remove():
     assert x[1].value == 2
 
 
+def test_reverse():
+    ll = make_linked_list()
+    ll_ = ll
+    ll_.reverse()
+
+    assert ll_.head == ll.tail
+
+
 def make_linked_list():
     x = DoublyLinkedList(1)
     x.append(2)
-    x.reverse_append(0)
     x.append(3)
     x.append(4)
     return x

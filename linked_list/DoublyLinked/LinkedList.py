@@ -39,6 +39,24 @@ class DoublyLinkedList(LinkedList):
 
         self.__len += 1
 
+    def reverse(self):
+        tail = self.head
+
+        while tail.next is not None:
+            new_head = tail.next
+            x = new_head.next
+
+            tail.next = x
+
+            if x is not None:
+                x.back = tail
+
+            new_head.next = self.head
+            new_head.back = None
+
+            self.head.back = new_head
+            self.head = new_head
+
     def __len__(self):
         return self.__len
 
